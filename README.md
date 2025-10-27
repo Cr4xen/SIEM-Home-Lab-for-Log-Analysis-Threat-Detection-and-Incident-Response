@@ -5,9 +5,9 @@ First, I set up the lab environment by installing VMware Workstation Pro 17 and 
 
 Both virtual machines were successfully deployed and fully operational, as demonstrated in the screenshots below.
 
-![[ubuntu.png]]
+![Ubuntu Screenshot](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/ubuntu.png)
 
-![[kali linux.png]]
+![kali linux](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/kali%20linux.png)
 
 Next, I installed the Wazuh Manager on the Kali Linux virtual machine.  
 I followed the official Wazuh documentation and utilized the provided commands to complete the installation and initial configuration successfully.
@@ -25,18 +25,18 @@ password: WKykYG..NSLmkic7LfX5z6mCI99kdh1T
 
 I accessed the Wazuh web interface by navigating to `localhost` in the browser, which successfully loaded the dashboard automatically.
 
-![[wazuh homepage.png]]
+![wazuh homepage](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/wazuh%20homepage.png)
 
 Next, I deployed the Wazuh agents.  
 One of the agents initially appeared as disconnected.  
 I navigated to the **Active Agents** section to verify status and troubleshoot connectivity
 
-![[active agent.png]]
+![active agent](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/active%20agent.png)
 
 I selected the **“Deploy New Agent”** option.  
 On the Linux agent machine, I configured the agent with the name **ubuntu-agent** and set the IP address of the Kali Linux machine, which serves as the Wazuh Manager.
 
-![[new agent page.png]]
+![new agent page](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/new%20agent%20page.png)
 
 I executed the following command on the agent machine to complete the registration process:
 ```bash
@@ -51,13 +51,13 @@ sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent
 ```
 
-![[ubuntu agent is deployed.png]]
+![ubuntu agent is deployed](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/ubuntu%20agent%20is%20deployed.png)
 
 After refreshing the Wazuh dashboard, the newly configured agent appeared as **active**, confirming successful registration and connectivity.
 
-![[deploy agent.png]]
+![deploy agent ubuntu](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/deploy%20agent%20ubuntu.png)
 
-![[dashboard.png]]
+![dashboard](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/dashboard.png)
 
 # Lab 1: File Integrity Monitoring (FIM)
 
@@ -114,13 +114,13 @@ sudo systemctl status wazuh-manager
 - Navigate to the **FIM** or **Syscheck** section.
 - Filter events by agent name or file changes to confirm alerts are generated correctly.
 
-![[FIM Events.png]]
+![FIM Events](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/FIM%20Events.png)
 
-![[FIM 2.png]]
+![FIM 2](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/FIM%202.png)
 
-![[FIM 3.png]]
+![FIM 3](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/FIM%203.png)
 
-![[FIM 4.png]]
+![FIM 4](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/FIM%204.png)
 
 # Lab 2: Detecting SSH Brute-Force Attacks
 ### Laboratory Setup
@@ -169,15 +169,15 @@ rule.id:(60122 OR 60204)
 ```
 - Observe authentication failure alerts and correlate them with the attack timing.
 
-![[ssh 1.png]]
+![ssh 1](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/ssh%201.png)
 
-![[ssh 2.png]]
+![ssh 2](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/ssh%202.png)
 
-![[ssh 3.png]]
+![ssh 3](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/ssh%203.png)
 
-![[ssh 4.png]]
+![ssh 4](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/ssh%204.png)
 
-![[ssh 5.png]]
+![ssh 5](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/ssh%205.png)
 
 ### 5 Configure Active Response for IP Blocking
 Active Response allows Wazuh to automatically block malicious IP addresses based on configured detections (e.g., SSH brute-force). Configure and test this feature carefully in a lab environment before applying to production.
@@ -236,13 +236,13 @@ sudo systemctl restart wazuh-manager
 sudo systemctl restart wazuh-manager
 ```
 
-![[vulnerability detection 1.png]]
+![vulnerability detection 1](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/vulnerability%20detection%201.png)
 
-![[vulnerability detection 2.png]]
+![vulnerability detection 2](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/vulnerability%20detection%202.png)
 
-![[vulnerability detection 3.png]]
+![vulnerability detection 3](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/vulnerability%20detection%203.png)
 
-![[vulnerability detection 4.png]]
+![vulnerability detection 4](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/vulnerability%20detection%204.png)
 
 # Lab 4: Detecting Suspicious Binaries with Wazuh Rootcheck
 ### Overview
@@ -302,9 +302,9 @@ location:rootcheck AND rule.id:510 AND data.title:"Trojaned version of file dete
 3. Optionally view `full_log` or raw event data for contextual evidence (file paths, checksums, timestamps).
 
 
-![[binary 1.png]]
+![binary 1](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/binary%201.png)
 
-![[binary 2.png]]
+![binary 2](https://raw.githubusercontent.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/main/Images/binary%202.png)
 
 # Lab 5: Detecting and Removing Malware Using VirusTotal Integration
 ### Overview
