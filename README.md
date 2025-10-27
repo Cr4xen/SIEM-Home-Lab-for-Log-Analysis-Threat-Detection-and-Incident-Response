@@ -1,3 +1,7 @@
+# SIEM Homelab for Log Analysis Threat Detection and Incident Response Documentation
+
+![Flowchart](https://github.com/Cr4xen/SIEM-Home-Lab-for-Log-Analysis-Threat-Detection-and-Incident-Response/raw/main/Images/Flowchart.png)
+
 First, I set up the lab environment by installing VMware Workstation Pro 17 and configuring two virtual machines:
 
 - **Kali Linux** as the Manager
